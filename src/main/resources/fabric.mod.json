@@ -19,6 +19,7 @@
 			"numbskul.modid.Snowballin"
 		],
 		"client": [
+
 			"numbskul.modid.SnowballinClient"
 		]
 	},

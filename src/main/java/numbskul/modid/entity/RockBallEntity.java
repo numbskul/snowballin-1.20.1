@@ -1,14 +1,24 @@
 package numbskul.modid.entity;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.thrown.SnowballEntity;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 
 public class RockBallEntity extends SnowballEntity {
+
+    public RockBallEntity(EntityType<? extends SnowballEntity> entityType, World world) {
+        super(entityType, world);
+    }
+
     public RockBallEntity(World world, LivingEntity owner) {
         super(world, owner);
+    }
+
+    public RockBallEntity(World world, double x, double y, double z) {
+        super(world, x, y, z);
     }
 
     @Override

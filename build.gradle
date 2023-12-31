@@ -22,7 +22,7 @@ loom {
     splitEnvironmentSourceSets()
 
 	mods {
-		"hardball" {
+		"snowballin" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
