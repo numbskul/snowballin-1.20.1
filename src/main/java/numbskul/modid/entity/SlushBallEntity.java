@@ -3,10 +3,6 @@ package numbskul.modid.entity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.mob.BlazeEntity;
 import net.minecraft.entity.projectile.thrown.SnowballEntity;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
@@ -28,8 +24,7 @@ public class SlushBallEntity extends SnowballEntity {
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         Entity entity = entityHitResult.getEntity();
-        int i = entity instanceof BlazeEntity ? 3 : 0;
-        entity.damage(this.getDamageSources().thrown(this, this.getOwner()), i);
+        entity.damage(this.getDamageSources().thrown(this, this.getOwner()), 1);
         if (entity instanceof LivingEntity) {
             if (entity.getFrozenTicks() < 200) {
                 entity.setFrozenTicks(200);

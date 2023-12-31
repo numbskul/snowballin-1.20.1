@@ -1,6 +1,5 @@
 package numbskul.modid.item.custom;
 
-
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SnowballItem;
@@ -10,21 +9,23 @@ import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-import numbskul.modid.entity.SlushBallEntity;
+import numbskul.modid.entity.ChorusBallEntity;
 
-public class SlushballItem extends SnowballItem {
-    public SlushballItem(Settings settings) {
+public class ChorusballItem extends SnowballItem {
+
+    public ChorusballItem(Settings settings){
         super(settings);
     }
+
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5f, 0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f));
         if (!world.isClient) {
-            SlushBallEntity slushballEntity = new SlushBallEntity(world, user);
-            slushballEntity.setItem(itemStack);
-            slushballEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 1.5f, 1.0f);
-            world.spawnEntity(slushballEntity);
+            ChorusBallEntity chorusballEntity = new ChorusBallEntity(world, user);
+            chorusballEntity.setItem(itemStack);
+            chorusballEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 1.5f, 1.0f);
+            world.spawnEntity(chorusballEntity);
         }
         user.incrementStat(Stats.USED.getOrCreateStat(this));
         if (!user.getAbilities().creativeMode) {
@@ -32,5 +33,4 @@ public class SlushballItem extends SnowballItem {
         }
         return TypedActionResult.success(itemStack, world.isClient());
     }
-    
 }

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "minecraft:powdered_snow_bucket"
+    }
+  ],
+  "result": {
+    "item": "snowballin:slushball",
+    "count": 4
+  }
+}

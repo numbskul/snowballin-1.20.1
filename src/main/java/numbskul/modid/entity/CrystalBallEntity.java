@@ -7,17 +7,17 @@ import net.minecraft.entity.projectile.thrown.SnowballEntity;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 
-public class RockBallEntity extends SnowballEntity {
+public class CrystalBallEntity extends SnowballEntity {
 
-    public RockBallEntity(EntityType<? extends SnowballEntity> entityType, World world) {
+    public CrystalBallEntity(EntityType<? extends SnowballEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    public RockBallEntity(World world, LivingEntity owner) {
+    public CrystalBallEntity(World world, LivingEntity owner) {
         super(world, owner);
     }
 
-    public RockBallEntity(World world, double x, double y, double z) {
+    public CrystalBallEntity(World world, double x, double y, double z) {
         super(world, x, y, z);
     }
 
@@ -25,7 +25,7 @@ public class RockBallEntity extends SnowballEntity {
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         Entity entity = entityHitResult.getEntity();
-        entity.damage(this.getDamageSources().thrown(this, this.getOwner()), 3);
+        entity.damage(this.getDamageSources().thrown(this, this.getOwner()), 10);
     }
 
 }
