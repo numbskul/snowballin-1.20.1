@@ -25,6 +25,8 @@ public class Snowballin implements ModInitializer {
 	public static final ChorusballItem CHORUS_BALL  = Registry.register(Registries.ITEM, new Identifier("snowballin", "chorusball"), new ChorusballItem(new FabricItemSettings().maxCount(16)));
 	public static final MetalballItem METAL_BALL  = Registry.register(Registries.ITEM, new Identifier("snowballin", "metalball"), new MetalballItem(new FabricItemSettings().maxCount(16)));
 	public static final CrystalballItem CRYSTAL_BALL  = Registry.register(Registries.ITEM, new Identifier("snowballin", "crystalball"), new CrystalballItem(new FabricItemSettings().maxCount(16)));
+	public static final BlazeballItem BLAZEBALL_ITEM  = Registry.register(Registries.ITEM, new Identifier("snowballin", "blazeball"), new BlazeballItem(new FabricItemSettings().maxCount(16)));
+	public static final LightningballItem LIGHTNINGBALL_ITEM  = Registry.register(Registries.ITEM, new Identifier("snowballin", "lightningball"), new LightningballItem(new FabricItemSettings().maxCount(16)));
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -32,7 +34,13 @@ public class Snowballin implements ModInitializer {
 		// Proceed with mild caution.
 		LOGGER.info("snowballin (snowball mod) says hello world!");
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(content -> {
+			content.addAfter(Items.SNOWBALL, LIGHTNINGBALL_ITEM);
+		});
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(content -> {
 			content.addAfter(Items.SNOWBALL, CHORUS_BALL);
+		});
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(content -> {
+			content.addAfter(Items.SNOWBALL, BLAZEBALL_ITEM);
 		});
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(content -> {
 			content.addAfter(Items.SNOWBALL, SLUSH_BALL);
